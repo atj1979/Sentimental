@@ -1,13 +1,13 @@
 /* global describe, it */
+var calcData = require ('../../server/config/indico.js');
+var expect = require('chai').expect;
 
-(function () {
-  'use strict';
+describe('tests for middleware.js', function () {
+  describe('Tests for indico.js', function () {
+    it('calcData should be a function', function () {
+    	expect(calcData).to.be.a('function');
 
-  describe('Give it some context', function () {
-    describe('maybe a bit more context here', function () {
-      it('should run here few assertions', function () {
-
-      });
     });
   });
-})();
+});
+
