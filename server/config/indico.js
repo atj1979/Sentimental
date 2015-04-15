@@ -46,8 +46,8 @@ function calcData(req, res){
 		value = JSON.parse(JSON.stringify(value));
 
 		var sentiment = [];
-		value.map(function(value){
-			sentiment.push(value.headline);
+		value.map(function(article){
+			sentiment.push(article.headline);
 		});
 		return sentiment;
 	}
@@ -56,8 +56,8 @@ function calcData(req, res){
 	function updateDataBase (sentiment, articles){
 		// Use JSON to remove any functions returned with the query
 		var articles = JSON.parse(JSON.stringify(articles));
-		articles.map(function(value, index){
-			new Article({'id': value.id})
+		articles.map(function(article, index){
+			new Article({'id': article.id})
 				.save({'sentiment':sentiment[index]});
 		})
 	}
