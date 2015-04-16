@@ -1,8 +1,23 @@
+Skip to content
+ This repository
+Explore
+Gist
+Blog
+Help
+@atj1979 atj1979
+ 
+ Watch 31
+  Star 0
+ Fork 21hackreactor/2015-02-shortly-deploy PRIVATE
+ branch: master  2015-02-shortly-deploy/deploy.sh
+@fredxfredx on Mar 3 Initial commit
+1 contributor
+RawBlameHistory     150 lines (121 sloc)  4.024 kb
 #!/bin/bash
 
 # ----------------------
 # KUDU Deployment Script
-# Version: 0.2.2
+# Version: 0.1.7
 # ----------------------
 
 # Helpers
@@ -77,7 +92,7 @@ selectNodeVersion () {
       NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
       exitWithMessageOnError "getting node version failed"
     fi
-    
+
     if [[ -e "$DEPLOYMENT_TEMP/.tmp" ]]; then
       NPM_JS_PATH=`cat "$DEPLOYMENT_TEMP/__npmVersion.tmp"`
       exitWithMessageOnError "getting npm version failed"
@@ -87,7 +102,7 @@ selectNodeVersion () {
       NODE_EXE=node
     fi
 
-   # NPM_CMD="\"$NODE_EXE\" \"$NPM_JS_PATH\""
+    NPM_CMD="\"$NODE_EXE\" \"$NPM_JS_PATH\""
   else
     NPM_CMD=npm
     NODE_EXE=node
@@ -112,7 +127,7 @@ selectNodeVersion
 # 3. Install npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  eval $NPM_CMD install 
+  eval $NPM_CMD install --production
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi
@@ -132,11 +147,10 @@ if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install grunt-cli
   exitWithMessageOnError "installing grunt failed"
-  # ./node_modules/.bin/grunt --no-color build
+  ./node_modules/.bin/grunt --no-color build
   exitWithMessageOnError "grunt failed"
   cd - > /dev/null
 fi
-
 ##################################################################################################################################
 
 # Post deployment stub
@@ -148,3 +162,5 @@ if [[ -n "$POST_DEPLOYMENT_ACTION" ]]; then
 fi
 
 echo "Finished successfully."
+Status API Training Shop Blog About
+© 2015 GitHub, Inc. Terms Privacy Security Contact
