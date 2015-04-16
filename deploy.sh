@@ -113,8 +113,8 @@ selectNodeVersion
 # 3. Install npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  eval $NPM_CMD install -g --production
   eval $NPM_CMD install --global npm@latest
+  eval $NPM_CMD install -g --production
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi
