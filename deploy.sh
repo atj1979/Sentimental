@@ -1,18 +1,4 @@
-Skip to content
- This repository
-Explore
-Gist
-Blog
-Help
-@atj1979 atj1979
- 
- Watch 31
-  Star 0
- Fork 21hackreactor/2015-02-shortly-deploy PRIVATE
- branch: master  2015-02-shortly-deploy/deploy.sh
-@fredxfredx on Mar 3 Initial commit
-1 contributor
-RawBlameHistory     150 lines (121 sloc)  4.024 kb
+
 #!/bin/bash
 
 # ----------------------
