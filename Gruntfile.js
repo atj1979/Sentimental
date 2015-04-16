@@ -4,7 +4,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       options: {
-        separator: ';'
+        separator: ';\n',
+        stripBanners: true
       },
       dist: {
         src: ['public/client/**/*.js'],
@@ -153,7 +154,7 @@ module.exports = function(grunt) {
       grunt.task.run([ 'shell:prodServer' ]);
     } else {
       // start mysql server
-      grunt.task.run(['shell:mysql']);
+      // grunt.task.run(['shell:mysql']);
       grunt.task.run([ 'server-dev' ]);
     }
   });

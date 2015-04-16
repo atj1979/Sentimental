@@ -87,7 +87,7 @@ selectNodeVersion () {
       NODE_EXE=node
     fi
 
-    NPM_CMD="\"$NODE_EXE\" \"$NPM_JS_PATH\""
+   # NPM_CMD="\"$NODE_EXE\" \"$NPM_JS_PATH\""
   else
     NPM_CMD=npm
     NODE_EXE=node
@@ -112,7 +112,7 @@ selectNodeVersion
 # 3. Install npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  eval $NPM_CMD install 
+  eval $NPM_CMD install --production
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi
@@ -132,7 +132,7 @@ if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install grunt-cli
   exitWithMessageOnError "installing grunt failed"
-  ./node_modules/.bin/grunt --no-color build
+  # ./node_modules/.bin/grunt --no-color build
   exitWithMessageOnError "grunt failed"
   cd - > /dev/null
 fi
