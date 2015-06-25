@@ -19,7 +19,6 @@ module.exports = function(app, express){
     //http://localhost:8080/data?startDate=20000101&endDate=20010101
 
     app.use(express.static(path.join(__dirname, '/../../public/client/'), {'dotfiles':'allow'}));
-    
     app.get('/data', function (req, res){
       fetchData(req, res);
     });
@@ -47,11 +46,17 @@ module.exports = function(app, express){
     setInterval(function(){indico()}, 60000);  
     
     // catch 404 and forward to error handler
+    app.get('/*', function (req, res){
+      console.log('redirect ' + req.headers.host);
+      res.redirect(req.headers.host);    
+    });
+
     app.use(function(req, res, next) {
         var err = new Error('Not Found');
         err.status = 404;
         next(err);
     });
+    
 
     function dateParse (dateObj){
       var time = dateObj;
