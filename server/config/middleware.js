@@ -7,7 +7,10 @@ var indico = require('./indico.js');
 var fetchData = require('./fetchData.js');
 var fetchKeyword = require('./fetchData.js');
 var injest = require('./P_injest');
+var favicon = require('serve-favicon');
 module.exports = function(app, express){
+
+    app.use(favicon(__dirname + '/public/favicon.ico'));
 
     // var routes = require('./routes/index.js');
     app.use(logger('dev'));
@@ -41,6 +44,7 @@ module.exports = function(app, express){
       injest(keyword, startDate, endDate, 'New York Times');
       res.send('request sent');
     });
+    
     // Automatic start and continuous checking the database every 60 seconds for new data to be sent to indico.io API
     // If left running 24 hours per day a call every 60 seconds will result in 1440 calls per day.
     setInterval(function(){indico()}, 60000);  

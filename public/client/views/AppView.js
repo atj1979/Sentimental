@@ -5,7 +5,6 @@ var AppView = Backbone.View.extend({
     this.subBarView = new SubBarView();
     this.chartView = new ChartView({model: this.model.get('chart')});
     this.footerView = new FooterView();
-    this.keywordView = new NewKeywordView();
   },
 
   render: function(){
@@ -14,8 +13,17 @@ var AppView = Backbone.View.extend({
       this.subBarView.$el,
       this.chartView.$el,
       this.footerView.$el,
-      this.keywordView.$el
     ]);
   }
 
 });
+
+
+//Simple close to get rid of event listeners and remove DOM elements.
+Backbone.View.prototype.close = function(){
+  this.remove();
+  this.unbind();
+  if (this.onClose){
+    this.onClose();
+  }
+}

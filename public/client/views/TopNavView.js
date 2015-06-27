@@ -13,7 +13,7 @@ var TopNavView = Backbone.View.extend({
 	  			'<a class="navbar-brand" href="#">SENTIMENTAL</a>'+
 	  		'</div>'+
 	  		'<p class="navbar-text navbar-right">' +
-	  			'<a href="#Sandbox" class="navbar-link">Sandbox</a>'+
+	  			'<a href="#sandbox" class="navbar-link">Sandbox</a>'+
 	  			'</p>'+
 	  		'<p class="navbar-text navbar-right">'+
 	  			'<a href="#AboutUs" class="navbar-link">About Us</a>'+
@@ -22,7 +22,8 @@ var TopNavView = Backbone.View.extend({
 					'<a href="#Stories" class="navbar-link">Stories</a>'+
 				'</p>'+
 			'</div>'+
-			'</nav>'),
+		'</nav>'
+	),
 
   render: function(){
     return this.$el.html(this.template());
