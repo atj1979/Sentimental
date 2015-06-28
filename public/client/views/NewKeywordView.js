@@ -18,9 +18,6 @@ var NewKeywordView = Backbone.View.extend({
   		return keyword !== "Search Term";
   	}
 
-
-
-
   	if (validKeyWord()){
   		queryURL += "keyword="+keyword;
   	}
@@ -70,7 +67,19 @@ var NewKeywordView = Backbone.View.extend({
   },
 
   render: function() {
-  	return this.$el.html('<input id="newKeyWord" type="text" value="Search Term"></input><input id="startDate" type="text" value="Start Date"></input><input id="endDate" type="text" value="End Date"></input><input id="kwque" type="submit" value="Que Keyword"></input>');
+  	return this.$el.html(
+      '<input id="newKeyWord" type="text" value="Search Term"></input>'+
+      '<input id="startDate" type="text" value="Start Date"></input>'+
+      '<input id="endDate" type="text" value="End Date"></input>'+
+      '<input id="kwque" type="submit" value="Queue Keyword"></input>'+
+      '<input list="sources">'+
+        '<datalist id=sources>'+
+          '<option value="New York Times">'+
+          '<option value="The Guardian">'+
+      '</input>'
+    );
   }
 
 });
+
+

@@ -49,6 +49,13 @@ module.exports = function(app, express){
     // If left running 24 hours per day a call every 60 seconds will result in 1440 calls per day.
     setInterval(function(){indico()}, 60000);  
     
+    app.get('/keywords', function (req, res){
+      
+
+      
+    });
+
+
     // catch 404 and forward to error handler
     app.get('/*', function (req, res){
       console.log('redirect ' + req.headers.host);
