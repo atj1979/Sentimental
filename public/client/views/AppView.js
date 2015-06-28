@@ -8,22 +8,14 @@ var AppView = Backbone.View.extend({
   },
 
   render: function(){
+    $('body').empty();
     return this.$el.html([
       this.topNavView.$el,
       this.subBarView.$el,
       this.chartView.$el,
-      this.footerView.$el,
+      this.footerView.$el
     ]);
   }
 
 });
 
-
-//Simple close to get rid of event listeners and remove DOM elements.
-Backbone.View.prototype.close = function(){
-  this.remove();
-  this.unbind();
-  if (this.onClose){
-    this.onClose();
-  }
-}

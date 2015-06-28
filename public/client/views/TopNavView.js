@@ -1,6 +1,6 @@
 var TopNavView = Backbone.View.extend({
   
-  tagName: 'div',
+  tagName: 'div #top-navigation',
 
   initialize: function() {
     this.render();
@@ -16,10 +16,10 @@ var TopNavView = Backbone.View.extend({
 	  			'<a href="#sandbox" class="navbar-link">Sandbox</a>'+
 	  			'</p>'+
 	  		'<p class="navbar-text navbar-right">'+
-	  			'<a href="#AboutUs" class="navbar-link">About Us</a>'+
+	  			'<a href="#aboutUs" class="navbar-link">About Us</a>'+
 				'</p>'+
 				'<p class="navbar-text navbar-right">'+
-					'<a href="#Stories" class="navbar-link">Stories</a>'+
+					'<a href="#stories" class="navbar-link">Stories</a>'+
 				'</p>'+
 			'</div>'+
 		'</nav>'

@@ -1,23 +1,32 @@
 var SandboxView = Backbone.View.extend({
-  
   initialize: function(params){
-    this.topNavView = new TopNavView();
+    console.log('sandboxview was here');
+    // this.topNavView = new TopNavView();
     this.subBarView = new SubBarView();
-    // this.chartView = new ChartView({model: this.model.get('chart')});
-    this.footerView = new FooterView();
     this.keywordView = new NewKeywordView();
+    // this.chartView = new ChartView({model: this.model.get('chart')});
+    // this.footerView = new FooterView();
   },
 
+  getKeyword: function(){
+
+
+    
+  },
+
+
+
+
   render: function(){
-    console.log(this);
-    this.close();
-    return this.$el.html([
-      this.topNavView.$el,
+
+    this.$el.html([
       this.subBarView.$el,
       // this.chartView.$el,
-      this.footerView.$el,
       this.keywordView.$el
     ]);
+    console.log('sandbox render called');
+    $('.subbar').empty().append(this.$el);
+    return this;
   }
 
 });

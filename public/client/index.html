@@ -45,7 +45,7 @@
     $(function(){
 
       // Set up model objects
-      var chart = new ChartModel({keywords: ['Enron'], sources: ['New York Times']});
+      var chart = new ChartModel({keywords: ['Bill Clinton'], sources: ['New York Times']});
       var app = new AppModel({chart: chart});
 
       // Set up view for whole app
@@ -59,7 +59,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!-- <div class="container"></div> -->
+<div class="top-navigation"></div>
+<div class="stories-chart">
+  <div class="stories"></div>
+  <div class="chart"></div>
+</div>
+<div class="footer"></div>
 
 </body>
 </html>
