@@ -4,6 +4,18 @@ var Source = require('./models/sourceModel.js');
 var bluebird = require('bluebird');
 var R = require('ramda');
 
+var keywordFetchAll = function (req, res){
+  var keywords=[];
+  new Keyword({}).fetchAll().then(function (data){
+
+    data.forEach(function(data){
+      keywords.push(data.attributes.word);
+    });
+
+  }).then(function (){res.send(keywords)});
+
+};
+
 var fetchData = function (req, res){
   //Parse url queries for us in table lookup
   var startDate = req.query.startDate || 00000000;
@@ -53,4 +65,9 @@ function logger(string, x){
   return x;
 } 
 
-module.exports = fetchData;
+module.exports = {
+  fetchData:fetchData,
+  keywordFetchAll: keywordFetchAll 
+
+
+}

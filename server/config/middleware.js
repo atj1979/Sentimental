@@ -23,7 +23,7 @@ module.exports = function(app, express){
 
     app.use(express.static(path.join(__dirname, '/../../public/client/'), {'dotfiles':'allow'}));
     app.get('/data', function (req, res){
-      fetchData(req, res);
+      fetchData.fetchData(req, res);
     });
 
     // Manual Initiation for sending data to indico.io to retrive a sentiment analysis 
@@ -50,9 +50,9 @@ module.exports = function(app, express){
     setInterval(function(){indico()}, 60000);  
     
     app.get('/keywords', function (req, res){
-      
+      fetchData.keywordFetchAll(req, res);
 
-      
+
     });
 
 

@@ -2,5 +2,5 @@
 // query about one specific keyword-source pair
 // A single chart may have several queries
 var Queries = Backbone.Collection.extend({ 
-  model: QueryModel,  
+  model: QueryModel 
 }); 
