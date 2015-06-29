@@ -9,7 +9,7 @@ var keywordFetchAll = function (req, res){
   new Keyword({}).fetchAll().then(function (data){
 
     data.forEach(function(data){
-      keywords.push(data.attributes.word);
+      keywords.push(data.attributes);
     });
 
   }).then(function (){res.send(keywords)});
