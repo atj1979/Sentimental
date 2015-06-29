@@ -8,6 +8,12 @@ var Word = db.Model.extend({
     return this.belongsToMany(Article);
   },
 
+  findAll: function (){
+    this.fetchAll().then(function (data) {
+      return data;
+    });
+  },
+
   initialize: function () {
     this.fetch().then(function (data) {
        if (data === null) {

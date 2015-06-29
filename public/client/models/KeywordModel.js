@@ -1,5 +1,5 @@
-var StoryModel = Backbone.Model.extend({
-
+var KeywordModel = Backbone.Model.extend({
+	keyword:keyword
 
 	
 });
