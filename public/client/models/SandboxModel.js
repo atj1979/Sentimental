@@ -1,11 +1,6 @@
-var StoryModel = Backbone.Model.extend({
+var Sandbox = Backbone.Model.extend({
 
 	//get all the keyword available
 
-	initialize : function (){
-
-
-
-	}
-
+	
 });

@@ -48,6 +48,7 @@ var NewKeywordView = Backbone.View.extend({
   },
 
   initialize: function() {
+    var keywords = new Keywords();
   	this.render();
   	//Date Picker is wrapped in document ready because the date picker will only work with jQuery selector.
   	$(function (){

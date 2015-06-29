@@ -1,5 +1,6 @@
 var KeywordModel = Backbone.Model.extend({
-	keyword:keyword
-
-	
+	defaults:{
+		keyword:"keyword",
+		id:"id"
+	}
 });
