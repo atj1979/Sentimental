@@ -1,5 +1,6 @@
 var NewKeywordView = Backbone.View.extend({
-	tagName: "div",
+	
+  tagName: "div",
 
   className: "navbar-default",
 
@@ -15,11 +16,13 @@ var NewKeywordView = Backbone.View.extend({
   	var endDate = _.escape(document.getElementById('endDate').value);
   	
   	function validKeyWord (){
-  		return keyword !== "Search Term";
+  		return keyword !== "Search Term" && keyword !== "";
   	}
 
+
+    //build the query
   	if (validKeyWord()){
-  		queryURL += "keyword="+keyword;
+  		queryURL += "keyword="+keyword.toLowerCase();
   	}
 
   	if (startDate != "Start Date" && validKeyWord()){
@@ -29,56 +32,48 @@ var NewKeywordView = Backbone.View.extend({
   	if (endDate != "End Date" && validKeyWord()) {
   		queryURL += "&endDate="+endDate;
   	}
+
+    //prepend with ? query 
   	if (queryURL.length > 0){
   		queryURL ="?"+queryURL;
   	}
   	
-  	console.log(queryURL);
-
-
   	//build query on url
   	$.ajax({
 	 	url: "/newsapi" + queryURL,
 	  	type: "GET"
 		})
 	  .done(function( data ) {
-	    console.log("successful post");
+	    console.log("successful post", data);
     return data;
 	  });
   },
 
   initialize: function() {
-    var keywords = new Keywords();
-  	this.render();
-  	//Date Picker is wrapped in document ready because the date picker will only work with jQuery selector.
-  	$(function (){
-	  	var start = $("#startDate");
-	  	start.datepicker({
-	  		dateFormat: "yymmdd",
-		    changeMonth: true,
-		    changeYear: true
-	    });
-	  	var stop = $("#endDate");
-	  	stop.datepicker({
-	  		dateFormat: "yymmdd",
-		    changeMonth: true,
-		    changeYear: true
-	    });
-  	});
+
+    this.render();
   },
 
   render: function() {
+
   	return this.$el.html(
       '<input id="newKeyWord" type="text" value="Search Term"></input>'+
-      '<input id="startDate" type="text" value="Start Date"></input>'+
-      '<input id="endDate" type="text" value="End Date"></input>'+
-      '<input id="kwque" type="submit" value="Queue Keyword"></input>'+
+      '<input id="startDate" class="dates" type="text" value="Start Date"></input>'+
+      '<input id="endDate" class="dates" type="text" value="End Date"></input>'+
       '<input list="sources">'+
         '<datalist id=sources>'+
           '<option value="New York Times">'+
           '<option value="The Guardian">'+
-      '</input>'
-    );
+        '</datalist>'+
+      '</input>'+
+      '<input id="kwque" type="submit" value="Queue Keyword"></input>'
+    ).find('.dates')
+      .datepicker({
+        dateFormat: "yymmdd",
+        changeMonth: true,
+        changeYear: true
+      }
+    ).end();
   }
 
 });
