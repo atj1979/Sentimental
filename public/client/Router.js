@@ -6,6 +6,7 @@ var AppRouter = Backbone.Router.extend({
     "aboutUs" : "aboutUs",
     "*path" : "redirectHome"
   },
+
   showView: function(view){
     console.log(this.$el);
   },
@@ -36,5 +37,5 @@ var AppRouter = Backbone.Router.extend({
 // Initiate the router
 var app_router = new AppRouter();
 
-// Start Backbone history - a necessary step for bookmarkable URL's
+// Start Backbone history - a necessary step for bookmarkable URL's or for the Router to work.
 Backbone.history.start();
