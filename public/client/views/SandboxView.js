@@ -22,7 +22,7 @@ var SandboxView = Backbone.View.extend({
     $(this.el).html([
       this.sandboxSubBarView.$el,
       // this.chartView.$el,
-      this.keywordView.$el
+      // this.keywordView.$el
     ]);
     $('.chart').empty();
     $('.subbar').empty().append(this.$el);

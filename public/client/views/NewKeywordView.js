@@ -60,20 +60,21 @@ var NewKeywordView = Backbone.View.extend({
       '<input id="newKeyWord" type="text" value="Search Term"></input>'+
       '<input id="startDate" class="dates" type="text" value="Start Date"></input>'+
       '<input id="endDate" class="dates" type="text" value="End Date"></input>'+
-      '<input list="sources">'+
-        '<datalist id=sources>'+
+      '<input list="sources" placeholder="News Sources">'+
+        '<datalist id="sources">'+
           '<option value="New York Times">'+
           '<option value="The Guardian">'+
         '</datalist>'+
       '</input>'+
       '<input id="kwque" type="submit" value="Queue Keyword"></input>'
-    ).find('.dates')
+    )
+    .find('.dates')
       .datepicker({
         dateFormat: "yymmdd",
         changeMonth: true,
         changeYear: true
-      }
-    ).end();
+      })
+    .end();
   }
 
 });
