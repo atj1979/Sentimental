@@ -1,6 +1,6 @@
 var SandboxSubBarView = Backbone.View.extend({
   
-  tagName: 'div class="row subbar"',
+  tagname: 'div',
 
   initialize: function() {
     this.storyMenuItemView = new StoryMenuItemView();
@@ -9,9 +9,10 @@ var SandboxSubBarView = Backbone.View.extend({
   },
 
   render: function(){
+    var that = this;
     return this.$el.html([
-      this.storyMenuItemView.$el,
-      this.headerView.$el
+      that.storyMenuItemView.$el,
+      that.headerView.$el
     ]);
   }
 });

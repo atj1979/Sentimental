@@ -1,6 +1,7 @@
 var StoryMenuItemView = Backbone.View.extend({
 
-  tagName: 'ul class="col-md-3"',
+  tagName: 'div',
+  className: "sand-box",
 
   template: _.template(
   	'<a href=""><li><%= searchTerm %></li></a>'
@@ -23,15 +24,9 @@ var StoryMenuItemView = Backbone.View.extend({
   render: function(){
   	var that = this
   	this.$els = this.keywords.models.reduce(function(previousVal, currentVal){
-
-  		if (previousVal){
-        previousVal = previousVal + that.template({ searchTerm : currentVal.attributes.word });
-      } else {
-        console.log("previousVal", previousVal);
-        previousVal = that.template({ searchTerm : currentVal.attributes.word });
-      }
-      return previousVal;
-  	});
+      return previousVal + that.template({ searchTerm : currentVal.attributes.word });
+  	}, "");
+    this.$els = "<ul>" + this.$els + "</ul>";
   	return this.$el.html(this.$els);
   }
 
