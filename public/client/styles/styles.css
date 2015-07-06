@@ -28,6 +28,7 @@ ul {
 
 li {
   list-style: none;
+  color: #88BDFA;
   padding: 10px 0 10px 63px;
 }
 
@@ -46,13 +47,14 @@ li {
 
 .subbar {
   background-color: #3F5F84;
-  color: #88BDFA;
+ 
   margin-top: 20px;
   min-height: 30%;
 }
 
 
 .summary {
+  width:100%;
   font-family: 'Georgia', 'Vollkorn', serif;
   font-size: 14px;
 }
@@ -93,6 +95,7 @@ div.sand-box {
   min-height:500px;
 }
 .keyword {
+
   overflow: auto;
   max-width:25%;
   max-height: 160px;
@@ -105,7 +108,7 @@ div.sand-box {
 
 div.story-description {
   overflow: auto;
-  padding-right: 15em;
+  padding-right: 5%;
   padding-left: 45px;
   background-color: #122C4A;
   color: white;
