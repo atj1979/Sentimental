@@ -4,7 +4,7 @@ var StoryMenuItemView = Backbone.View.extend({
   className: "sand-box",
 
   template: _.template(
-  	'<a href=""><li><%= searchTerm %></li></a>'
+  	'<a><li><%= searchTerm %></li></a>'
 	),
 
   events: {
