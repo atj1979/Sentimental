@@ -1,14 +1,16 @@
 var StoryMenuItemView = Backbone.View.extend({
 
   tagName: 'div',
-  className: "sand-box",
+  className: "sand-box col-md-3",
 
   template: _.template(
   	'<a><li><%= searchTerm %></li></a>'
 	),
 
   events: {
-    },
+  
+  },
+
   initialize:function (){
   	var that = this;
   	this.keywords = new Keywords();
