@@ -1,6 +1,6 @@
 var StoryMenuView = Backbone.View.extend({
   
-  tagName: 'div class="col-md-3"',
+  tagName: 'div class="col-md-3 keyword"',
 
   initialize: function() {
     this.render();
@@ -9,7 +9,7 @@ var StoryMenuView = Backbone.View.extend({
   template: _.template(
   	'<ul>'+
 	  	'<li>Diana\'s Death + The Royals</li>'+
-	  	'<li class="highlight">BP + Deepwater Horizon</li>'+
+	  	'<li>BP + Deepwater Horizon</li>'+
 	  	'<li>Jeb Bush + Bush Family Shadow</li>'+
 	  	'<li>UK General Election</li>'+
   	'</ul>'

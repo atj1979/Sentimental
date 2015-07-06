@@ -8,10 +8,7 @@ var StoryMenuItemView = Backbone.View.extend({
 	),
 
   events: {
-    'click': function(val) {
-    	console.log(val);
-    }
-  },
+    },
   initialize:function (){
   	var that = this;
   	this.keywords = new Keywords();
