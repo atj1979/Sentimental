@@ -10,7 +10,7 @@ var TopNavView = Backbone.View.extend({
   	'<nav class="navbar navbar-default navbar-fixed-top topNav">'+
   		'<div class="container">'+
 	  		'<div class="navbar-header">'+
-	  			'<a class="navbar-brand" href="#">SENTIMENTAL</a>'+
+	  			'<a class="navbar-brand" href="">SENTIMENTAL</a>'+
 	  		'</div>'+
 	  		'<p class="navbar-text navbar-right">' +
 	  			'<a href="#sandbox" class="navbar-link">Sandbox</a>'+
