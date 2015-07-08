@@ -8,7 +8,12 @@ var StoryMenuItemView = Backbone.View.extend({
 	),
 
   events: {
+    "click li" : "getChart"
   
+  },
+
+  getChart: function (val){
+    console.log(val.currnetTarget)
   },
 
   initialize:function (){

@@ -35,14 +35,13 @@ var ChartModel = Backbone.Model.extend({
     this.options = _.extend(this.defaults, params);
     this.startDate = new Date(this.options.START_YEAR + "-01-01");
     this.endDate = new Date(Math.min(new Date(), new Date(this.options.END_YEAR + "-12-31")));
-    console.log('Showing data from', this.startDate, 'through', this.endDate);
 
     this.keywords = params.keywords; 
     this.sources = params.sources;  
     this.queryList = [];  
     this.colors = ['#00C599', '#FF001F', '#F4C900', '#A900D4'];
     this.makeQueryList();
-
+    console.log("ChartModel THIS", this)
     // Later there will be more here for the input field to add keywords,
     // or the dropdown to add new news sources to chart,
     // or whatever interface will require.
