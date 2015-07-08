@@ -89,10 +89,13 @@ div.sand-box {
   max-height: 300px;
   min-height: 200px;
 
-};
+}
 .chart{
   overflow:auto;
   min-height:500px;
+  min-width:310px;
+  margin:0 auto;
+
 }
 .keyword {
 
