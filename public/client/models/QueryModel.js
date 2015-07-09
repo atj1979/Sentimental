@@ -10,7 +10,6 @@ var QueryModel = Backbone.Model.extend({
     this.source = queryObj.source;
     this.keyword = queryObj.keyword;
 
-    console.log('the start is ', this.startDate);
 
 
     // declare some variables that will be used when
@@ -32,20 +31,19 @@ var QueryModel = Backbone.Model.extend({
     var endDateURLFormat = this.endDate.getFullYear() + '' +
       this.endDate.getMonth() + '' +
       this.endDate.getDate();
-    var sourceURLFormat = this.source.replace(/\s+/g, '').toLowerCase();
-    var keywordURLFormat = this.keyword.replace(/\s+/g, '') //.toLowerCase();
-
+    var sourceURLFormat = encodeURI(this.source.toLowerCase())
+    var keywordURLFormat = encodeURI(this.keyword.toLowerCase());
     this.url =
       '/data?startDate=' + startDateURLFormat +
       '&endDate=' + endDateURLFormat +
       '&source=' + sourceURLFormat +
       '&keyword=' + keywordURLFormat; 
-    console.log(this.url);
+    // console.log(this.url);
   },
 
   queryServer: function(){
     var scope = this;
-    console.log('querying url:', this.url);
+    // console.log('querying url:', this.url);
     $.ajax({  
       url: scope.url
     })
@@ -70,7 +68,7 @@ var QueryModel = Backbone.Model.extend({
 
     var timeBucket = 'quarter';
 
-    console.log('averaging data points by ' + timeBucket)
+    // console.log('averaging data points by ' + timeBucket)
     
     var articles = this.get('responseData').map(function(obj){
       return _.pick(obj, 'published', 'sentiment', 'url', 'headline');
@@ -87,14 +85,14 @@ var QueryModel = Backbone.Model.extend({
         if (month.length === 1){
           month = '0' + month;
         }
-        console.log('month:', month);
+        // console.log('month:', month);
         article['timeBucket'] = year + '-' + month + '-' + '15';
       } else if (timeBucket === 'month'){
         var month = (date.getMonth() + 1) + '';
         if (month.length === 1){
           month = '0' + month;
         }
-        console.log('month:', month);
+        // console.log('month:', month);
         article['timeBucket'] = year + '-' + month + '-' + '15';
       }
       // date.getMonth();
