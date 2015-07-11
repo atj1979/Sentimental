@@ -5,10 +5,19 @@ var QueryModel = Backbone.Model.extend({
   // Technically the fetching of data from server should happen in here
 
   initialize: function(queryObj){
-    this.startDate = queryObj.startDate;
-    this.endDate = queryObj.endDate;
-    this.source = queryObj.source;
-    this.keyword = queryObj.keyword;
+
+    if (queryObj.startDate){
+      this.startDate = queryObj.startDate;
+    }
+    if (queryObj.endDate){
+      this.endDate = queryObj.endDate;
+    }
+    if (queryObj.source){
+      this.source = queryObj.source;
+    }
+    if (queryObj.keyword){
+      this.keyword = queryObj.keyword;
+    }
 
 
 
@@ -25,14 +34,14 @@ var QueryModel = Backbone.Model.extend({
     // figure out what url to ping
     // example url:
     // "/data?startDate=20101214&endDate=20150114&source=newyorktimes&keyword=BP",
-    var startDateURLFormat = this.startDate.getFullYear() + '' +
+    var startDateURLFormat = this.startDate ? this.startDate.getFullYear() + '' +
       this.startDate.getMonth() + '' +
-      this.startDate.getDate();
-    var endDateURLFormat = this.endDate.getFullYear() + '' +
+      this.startDate.getDate() : '';
+    var endDateURLFormat = this.endDate ? this.endDate.getFullYear() + '' +
       this.endDate.getMonth() + '' +
-      this.endDate.getDate();
-    var sourceURLFormat = encodeURI(this.source.toLowerCase())
-    var keywordURLFormat = encodeURI(this.keyword.toLowerCase());
+      this.endDate.getDate() : '';
+    var sourceURLFormat = this.source ? encodeURI(this.source.toLowerCase()) : '';
+    var keywordURLFormat = this.keyword ? encodeURI(this.keyword.toLowerCase()) : '';
     this.url =
       '/data?startDate=' + startDateURLFormat +
       '&endDate=' + endDateURLFormat +
@@ -43,7 +52,7 @@ var QueryModel = Backbone.Model.extend({
 
   queryServer: function(){
     var scope = this;
-    // console.log('querying url:', this.url);
+    console.log('querying url:', this.url);
     $.ajax({  
       url: scope.url
     })
