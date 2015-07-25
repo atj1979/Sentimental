@@ -5,7 +5,7 @@ var QueryModel = Backbone.Model.extend({
   // Technically the fetching of data from server should happen in here
   queryServer: function(){
     var scope = this;
-    console.log('querying url:', this.url);
+    // console.log('querying url:', this.url);
     $.ajax({  
       url: scope.url
     })
@@ -18,7 +18,9 @@ var QueryModel = Backbone.Model.extend({
     return this;
   },
   initialize: function(queryObj){
-
+    // Object.keys(queryObj).forEach(function (val){
+    //   this[val]
+    // })
     if (queryObj.startDate){
       this.startDate = queryObj.startDate;
     }
@@ -32,6 +34,7 @@ var QueryModel = Backbone.Model.extend({
       this.keyword = queryObj.keyword;
     }
     console.log('in query initialize');
+    console.log(queryObj);
 
 
     // declare some variables that will be used when
@@ -60,7 +63,7 @@ var QueryModel = Backbone.Model.extend({
       '&endDate=' + endDateURLFormat +
       '&source=' + sourceURLFormat +
       '&keyword=' + keywordURLFormat; 
-    console.log(this.url);
+    // console.log(this.url);
     this.queryServer();
     this.handleResponseData();
   },
