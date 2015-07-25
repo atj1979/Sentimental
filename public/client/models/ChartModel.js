@@ -41,7 +41,7 @@ var ChartModel = Backbone.Model.extend({
     this.queryList = [];  
     this.colors = ['#00C599', '#FF001F', '#F4C900', '#A900D4'];
     this.makeQueryList();
-    console.log("ChartModel THIS", this)
+    // console.log("ChartModel THIS", this)
     // Later there will be more here for the input field to add keywords,
     // or the dropdown to add new news sources to chart,
     // or whatever interface will require.

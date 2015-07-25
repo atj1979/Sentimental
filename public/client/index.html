@@ -51,11 +51,12 @@
 
   <link rel="stylesheet" type="text/css" href="./bower_components/jqueryui/themes/smoothness/jquery-ui.css">
   <script src="./bower_components/jqueryui/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script>
     $(function(){
 
       // Set up model objects
-      // var chart = new ChartModel({keywords: ['Bill Clinton'], sources: ['new york times']});
+      var chart = new ChartModel({keywords: ['Bill Clinton'], sources: ['new york times']});
       var app = new AppModel({chart: chart});
 
       // Set up view for whole app
@@ -66,7 +67,6 @@
     });
   </script>
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="top-navigation"></div>
